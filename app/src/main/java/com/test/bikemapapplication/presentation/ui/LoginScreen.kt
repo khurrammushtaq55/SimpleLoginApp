@@ -27,6 +27,7 @@ import com.test.bikemapapplication.presentation.viewmodel.LoginViewModel
 fun LoginScreen(viewModel: LoginViewModel) {
     val snackBarHostState = remember { SnackbarHostState() }
     val loginResult = viewModel.loginResult
+    val focusManager = LocalFocusManager.current
 
     Scaffold(snackbarHost = { SnackbarHost(snackBarHostState) }) { paddingValues ->
         LaunchedEffect(loginResult) {
@@ -58,6 +59,7 @@ fun LoginScreen(viewModel: LoginViewModel) {
             )
             Spacer(modifier = Modifier.height(16.dp))
             Button(onClick = {
+                focusManager.clearFocus()
                 viewModel.login()
             }, modifier = Modifier.fillMaxWidth()) {
                 Text("Login")
