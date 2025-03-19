@@ -10,17 +10,20 @@ import kotlinx.coroutines.launch
 import com.test.bikemapapplication.data.Error
 
 class LoginViewModel(private val apiService: ApiService = ApiService()) : ViewModel() {
+    // we can use Dependency injection here But Due to only 1 dependency we can use it directly
+    // - Otherwise di will create too much boilerplate code
+
     var email by mutableStateOf("")
     var password by mutableStateOf("")
     var loginResult by mutableStateOf<String?>(null)
 
     fun login() {
         if (email.isBlank()) {
-            loginResult = "Email cannot be empty" // should be localized
+            loginResult = "Email cannot be empty" // should be localized to support different languages
             return
         }
         if (password.isBlank()) {
-            loginResult = "Password cannot be empty" // should be localized
+            loginResult = "Password cannot be empty" // should be localized to support different languages
             return
         }
 
