@@ -1,4 +1,4 @@
-package com.test.bikemapapplication
+package com.test.bikemapapplication.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
